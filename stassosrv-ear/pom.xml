@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.csi.stacore</groupId>
+		<artifactId>stassosrv</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>stassosrv-ear</artifactId>
+	<packaging>ear</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stassosrv-api</artifactId>
+			<version>1.0.0</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>macfonta</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy</id>
+								<phase>install</phase>
+								<configuration>
+									<tasks>
+										<copy file="${project.build.directory}/${ear.name}.ear"
+											tofile="${JBOSS_HOME}/standalone/deployments/${ear.name}.ear" />
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+
+			<!-- creazione ear -->
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>${maven.ear.plugin.version}</version>
+				<configuration>
+					<finalName>${ear.name}</finalName>
+					<defaultLibBundleDir>/lib</defaultLibBundleDir>
+					<skinnyWars>true</skinnyWars>
+					<modules>
+						<webModule>
+							<groupId>it.csi.stacore</groupId>
+							<artifactId>stassosrv-api</artifactId>
+							<contextRoot>/${context.name}</contextRoot>
+							<bundleFileName>stassosrv-api.war</bundleFileName>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

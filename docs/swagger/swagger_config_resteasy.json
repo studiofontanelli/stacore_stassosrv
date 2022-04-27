@@ -1,0 +1,17 @@
+{
+"java8": true,
+"useBeanValidation": true,
+"hideGenerationTimestamp": true,
+"apiPackage": "it.csi.stacore.stassosrv.api.service",
+"modelPackage":  "it.csi.stacore.stassosrv.api.dto",
+"invokerPackage": "it.csi.stacore.stassosrv.api.service",
+"implFolder": "src/main/java",
+"sourceFolder": "src/main/java",
+"useSwaggerFeature": false,
+"generateJbossDeploymentDescriptor": false,
+"generateImplArtifacts": false,
+"generateSwaggerMetadata": false,
+"attributeSerializationStrategy": "implicit-camel-case",
+"accessHttpHeaders": true,
+"serializableModel": true
+}

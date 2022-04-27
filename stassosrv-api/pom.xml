@@ -1,0 +1,273 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.csi.stacore</groupId>
+		<artifactId>stassosrv</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>stassosrv-api</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stassosrv-business</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stassosrv-dto</artifactId>
+			<version>${version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>${swagger-annotation.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>${swagger-jaxrs.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-codegen-maven-plugin</artifactId>
+			<version>2.4.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>${resteasy-client.version}</version>
+			<scope>test</scope>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>${resteasy.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>${commons-pool.version}</version>
+			<scope>test</scope>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${commons-httpclient.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.jdbc.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- TEST -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>macfonta</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>local</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>dev-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>tst-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>coll-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>prod-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>Using ${property.file.name.source}</echo>
+								<copy file="buildfiles/${property.file.name.source}"
+									tofile="${project.build.outputDirectory}/environment.properties" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+				<configuration>
+					<!-- Exclude JCL and LOG4J since all logging should go through SLF4J. 
+						Note that we're excluding log4j-<version>.jar but keeping log4j-over-slf4j-<version>.jar -->
+					<packagingExcludes>
+						WEB-INF/**/*-ds.xml
+						WEB-INF/lib/commons-logging-*.jar,
+						WEB-INF/lib/servlet-api-*.jar,
+						WEB-INF/lib/maven-*.jar,
+						WEB-INF/lib/aopalliance-*.jar,
+						%regex[WEB-INF/lib/log4j-(?!over-slf4j).*.jar]
+					</packagingExcludes>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/web.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

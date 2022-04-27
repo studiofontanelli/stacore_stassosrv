@@ -1,0 +1,92 @@
+swagger: '2.0'
+info:
+  description: API componente staaudit
+  version: 1.0.0
+  title: STAAUDIT
+  contact:
+    email: andrea1.fontanelli@consulenti.csi.it
+# tags are used for organizing operations
+tags:
+- name: test
+  description: test resources
+- name: operation
+  description: operazione che si vuole loggare
+
+
+# basePath: /api
+# schemes:
+#    - http
+
+paths:
+  /test/resources:
+    get:
+      tags:
+        - test
+      summary: Test resources
+      description: Effettua il test dei servizi richiamati
+      operationId: testResources
+      produces:
+      - application/json
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/GenericResponse'
+          description: OK
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'
+  
+definitions:
+  GenericResponse:
+    type: object
+    description: Risposta di un servizio generico
+    properties:
+      message:
+        type: string
+        description: Contiene il messaggio eventuale del servizio chiamato
+        example: 'Servizio ha risposto correttamente'
+  ErrorDto:
+    type: object
+    description: Rappresenta l'errore restituito da servizio
+    properties:
+      status:
+        type: integer
+        description: status http restituito
+        example: '500, 400, ecc'
+      code:
+        type: string
+        description: code http restituito
+        example: 'Internal server error, ecc'
+      description:
+        type: string
+        description: la descrizione dell'errore
+        example: 'Internal server error, ecc'
+      errorDetails:
+        type: array
+        description: i dettagli errore
+        items:
+          $ref: '#/definitions/ErrorDetail'
+  ErrorDetail:
+    type: object
+    description: rappresenta il dettaglio errore restituito in caso di errori di validazione sui campi di input
+    properties:
+      field:
+        type: string
+        description: il nome del campo per cui è falita la validazione
+        example: 'name, surname'
+      error:
+        type: string
+        description: l'errore di validazione effettivo
+        example: 'campo obbligatorio, ecc'
+      description:
+        type: string
+        description: la descrizione dell'errore
+        example: 'Internal server error, ecc'
+  
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /studiofontanelli/staaudit/1.0.0
+schemes:
+ - https
+ - http

@@ -1,0 +1,169 @@
+swagger: '2.0'
+info:
+  description: API componente staaudit
+  version: 1.0.0
+  title: STAAUDIT
+  contact:
+    email: andrea1.fontanelli@consulenti.csi.it
+# tags are used for organizing operations
+tags:
+- name: test
+  description: test resources
+- name: operation
+  description: operazione che si vuole loggare
+
+
+# basePath: /api
+# schemes:
+#    - http
+
+host: 127.0.0.1:8080
+basePath: /staaudit/api
+schemes:
+ - https
+ - http
+
+
+paths:
+  /test/resources:
+    get:
+      tags:
+        - test
+      summary: Test resources
+      description: Effettua il test dei servizi richiamati
+      operationId: testResources
+      produces:
+      - application/json
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/GenericResponse'
+          description: OK
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'
+  /operation/save:
+    post:
+      tags:
+        - operation
+      summary: Save operation
+      description: Effettua il tracciamento dell'operazione effettuata
+      operationId: saveOperation
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: request
+          required: true
+          schema:
+            $ref: '#/definitions/RequestSalvaOperazione'
+      responses:
+        201:
+          description: OK
+        422:
+          description: Errori di validazione
+          schema:
+            $ref: '#/definitions/ErrorDto'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'
+definitions:
+  GenericResponse:
+    type: object
+    description: Risposta di un servizio generico
+    properties:
+      message:
+        type: string
+        description: Contiene il messaggio eventuale del servizio chiamato
+        example: 'Servizio ha risposto correttamente'
+  ErrorDto:
+    type: object
+    description: Rappresenta l'errore restituito da servizio
+    properties:
+      status:
+        type: integer
+        description: status http restituito
+        example: '500, 400, ecc'
+      code:
+        type: string
+        description: code http restituito
+        example: 'Internal server error, ecc'
+      description:
+        type: string
+        description: la descrizione dell'errore
+        example: 'Internal server error, ecc'
+      errorDetails:
+        type: array
+        description: i dettagli errore
+        items:
+          $ref: '#/definitions/ErrorDetail'
+  ErrorDetail:
+    type: object
+    description: rappresenta il dettaglio errore restituito in caso di errori di validazione sui campi di input
+    properties:
+      field:
+        type: string
+        description: il nome del campo per cui è falita la validazione
+        example: 'name, surname'
+      error:
+        type: string
+        description: l'errore di validazione effettivo
+        example: 'campo obbligatorio, ecc'
+      description:
+        type: string
+        description: la descrizione dell'errore
+        example: 'Internal server error, ecc'
+  RequestSalvaOperazione:
+    type: object
+    description: è la richiesta di salvataggio di un'operazione
+    properties:
+      operazione:
+        type: object
+        description: l'operazione da salvare
+        $ref: '#/definitions/Operazione'
+      utente:
+        type: string
+        description: identificativo utente
+        example: Il codice fiscale dell'utente
+      ipAddress:
+        type: string
+        description: indiririzzo IP utente collegato
+      codiceUnitaInstallazione:
+        type: string
+        description: il codice della UI che effettua la chiamata. Il codice deve essere censito nella base dati della STAAUDIT.
+          N.B. la unità di installazione può non coincidere con la componente
+        example: staonjb, staonjbbch, stadoc, ecc 
+    required:
+      - operazione
+      - utente
+      - codiceUnitaInstallazione
+  Operazione:
+    type: object
+    description: rappresenta l'operazione effettuata
+    properties:
+      codice:
+        type: string
+        description: il codice dell'operazione effettuata 
+        example: Valori disponibili (LOGIN, LOGOUT, READ, INSERT, UPDATE, DELETE, PRINT)
+      entita:
+        type: string
+        description: l'entità oggetto dell'operazione
+        example: 
+      chiave:
+        type: string
+        description: la chiave (primaria/logica) dell'entità per la quale si è effettuata l'operazione. La chiave è obbligatoria se l'entità è presente 
+        example: PK, chiave logica dell'entità 
+      data:
+        type: string
+        format: date-time
+        description: la data operazione n formato dd/MM/yyyy HH:mm:ss 
+        example: 10/01/2022 15:33:00
+    required:
+      - codice
+      - data
+
+

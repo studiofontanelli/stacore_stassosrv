@@ -1,0 +1,16 @@
+<assembly>
+	<id>releases</id>
+	<formats>
+		<format>tar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>../stassosrv-ear/target</directory>
+			<includes>
+				<include>*.ear</include>
+			</includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>
