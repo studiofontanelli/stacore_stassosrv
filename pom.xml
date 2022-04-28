@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.csi.stacore</groupId>
 	<artifactId>stassosrv</artifactId>
-<<<<<<< HEAD
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	
@@ -368,9 +367,4 @@
 			</properties>
 		</profile>
 	</profiles>
-	
-=======
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
->>>>>>> branch 'main' of https://github.com/studiofontanelli/stacore_stassosrv.git
 </project>
