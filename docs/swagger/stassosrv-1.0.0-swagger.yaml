@@ -2,15 +2,15 @@ swagger: '2.0'
 info:
   description: API componente staaudit
   version: 1.0.0
-  title: STAAUDIT
+  title: STASSOSRV
   contact:
-    email: andrea1.fontanelli@consulenti.csi.it
+    email: andrea.fontanelli@eng.it
 # tags are used for organizing operations
 tags:
 - name: test
   description: test resources
-- name: operation
-  description: operazione che si vuole loggare
+- name: sso
+  description: Servizio per la gestione dell'autorizzazione e profilazione utente
 
 
 # basePath: /api
@@ -36,8 +36,119 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/ErrorDto'
-  
+  /sso/utente:
+    get:
+      tags:
+        - sso
+      summary: recupera l'utente
+      description: recupera l'utente dall'identità iride e il codice applicazione
+      operationId: getUtente
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: identita
+          type: string
+          required: true
+          description: Identità restituita dal SSO SHIBB
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/GenericResponse'
+          description: OK
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'
 definitions:
+  Utente:
+    type: object
+    description: Utente
+    properties:
+      id:
+        type: string
+        description: Id Utente
+        example: 'Identificativo Utente'
+      tipoUtente:
+        $ref: '#/definitions/TipoUtente'
+      ente:
+        $ref: '#/definitions/Ente'
+      elencoCassa:
+        type: array
+        description: Elenco casse
+        items:
+          $ref: '#/definitions/Cassa'
+      elencoSportello:
+        type: array
+        description: Elenco sportelli
+        items:
+          $ref: '#/definitions/Sportello'
+  TipoUtente:
+    type: object
+    description: Tipo Utente
+    properties:
+      codice:
+        type: string
+        description: Codice Utente
+        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+      descrizione:
+        type: string
+        description: Descrizione tipo Utente
+        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+  Ente:
+    type: object
+    description: Ente
+    properties:
+      email:
+        type: string
+        description: Email
+        example: 'Email Ente'
+      indirizzo:
+        type: string
+        description: Indirizzo
+        example: 'Indirizzo Ente'
+      civico:
+        type: string
+        description: Civico
+        example: 'Civico Ente'
+      cap:
+        type: string
+        description: CAP
+      comune:
+        type: string
+        description: Comune
+      codiceFiscale:
+        type: string
+        description: Comune
+      provincia:
+        type: string
+        description: Provincia
+  Abilitazione:
+    type: object
+    description: Abilitazione
+    properties:
+      codice:
+        type: string
+        description: Codice Utente
+        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+  Cassa:
+    type: object
+    description: Cassa
+    properties:
+      codice:
+        type: string
+        description: Codice Utente
+        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+  Sportello:
+    type: object
+    description: Cassa
+    properties:
+      codice:
+        type: string
+        description: Codice Utente
+        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
   GenericResponse:
     type: object
     description: Risposta di un servizio generico
@@ -86,7 +197,9 @@ definitions:
   
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /studiofontanelli/staaudit/1.0.0
+# basePath: /studiofontanelli/staaudit/1.0.0
 schemes:
  - https
  - http
+# Added by API Auto Mocking Plugin
+basePath: /andreafontanelli/stassosrv/1.0.0

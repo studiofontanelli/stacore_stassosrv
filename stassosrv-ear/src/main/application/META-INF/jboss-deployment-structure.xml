@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+
+	<deployment>
+		<exclusions>
+			<module name="org.springframework" />
+			<module name="org.jboss.security" />
+			<module name="org.picketbox" />
+		</exclusions>
+	</deployment>
+
+	<sub-deployment name="stassosrv-api.war">
+		<local-last value="false" />
+		<exclusions>
+			<module name="org.springframework" />
+			<module name="org.jboss.security" />
+			<module name="org.picketbox" />
+		</exclusions>
+
+		<dependencies>
+			<module name="org.jboss.logging" />
+			<module name="org.codehaus.jettison" />
+			<module name="org.javassist" />
+			<module name="org.apache.commons.lang" />
+			<module name="org.apache.commons.io" />
+			<module name="org.apache.cxf" />
+			<module name="org.apache.cxf.impl" />
+			<module name="javax.wsdl4j.api" />
+		</dependencies>
+
+	</sub-deployment>
+
+</jboss-deployment-structure>

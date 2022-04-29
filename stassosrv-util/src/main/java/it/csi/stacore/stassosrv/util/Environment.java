@@ -8,18 +8,18 @@ public class Environment {
 
 
 
-	@Value("${index_service_endpoint_url}")
-	private String indexEndpoint;
+	@Value("${iride_service_endpoint_url}")
+	private String irideEndpoint;
 
-	public String getIndexEndpoint() {
-		return indexEndpoint;
+	public String getIrideEndpoint() {
+		return irideEndpoint;
 	}
 
-	public void setIndexEndpoint(String indexEndpoint) {
-		this.indexEndpoint = indexEndpoint;
+	public void setIrideEndpoint(String irideEndpoint) {
+		this.irideEndpoint = irideEndpoint;
 	}
 
-
+	
 
 
 

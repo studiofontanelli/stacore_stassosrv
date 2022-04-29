@@ -198,6 +198,12 @@
 			<artifactId>util-perf</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.iridev2</groupId>
+			<artifactId>iridev2-pep-base-wsnmsf</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 
 
 	</dependencies>

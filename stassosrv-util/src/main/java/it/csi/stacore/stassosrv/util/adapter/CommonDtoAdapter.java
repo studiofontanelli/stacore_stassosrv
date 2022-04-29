@@ -28,9 +28,6 @@ public abstract class CommonDtoAdapter<T, V> implements DtoAdapterInterface <T, 
 	private static final long serialVersionUID = -5629485852400260343L;
 
 
-	@Autowired
-	private ApplicationContext applicationContext;
-
 	
 	public abstract ApplicationContext getApplicationContext() ;
 

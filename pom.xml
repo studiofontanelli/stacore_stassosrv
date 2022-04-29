@@ -107,7 +107,7 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.11</version>
+			<version>${org.aspectj.version}</version>
 		</dependency>
 		
 		<!-- ORM -->
@@ -257,7 +257,7 @@
 		<commons-lang3.version>3.8.1</commons-lang3.version>
 		<commons-logging.version>1.1.1-redhat-1</commons-logging.version>
 		<commons-pool.version>1.6.0.redhat-7</commons-pool.version>
-
+		<axis.version>1.4</axis.version>
 		<cglib.version>2.2.2</cglib.version>
 
 		<csi.lib.version>1.4.6</csi.lib.version>
@@ -309,6 +309,9 @@
 		<guava.version>19.0</guava.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<junit.version>4.12</junit.version>
+		
+		<!-- aspectj -->
+		<org.aspectj.version>1.6.11</org.aspectj.version>
 		
 		
 		<!-- resteasy -->

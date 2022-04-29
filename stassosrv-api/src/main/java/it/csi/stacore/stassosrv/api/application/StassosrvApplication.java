@@ -32,6 +32,7 @@ public class StassosrvApplication extends Application {
 	private List<String> getServiceList(){
 		List<String> l = new ArrayList<String>();
 		l.add("testApi");
+		l.add("ssoApi");
 		return l;
 
 	}

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.csi.stacore.stassosrv.business.exception.HelperException;
+import it.csi.stacore.stassosrv.business.helper.IrideHelper;
 import it.csi.stacore.stassosrv.business.helper.TestResourceHelper;
 import it.csi.stacore.stassosrv.integration.exception.IntegrationException;
 import it.csi.stacore.stassosrv.integration.service.IrideService;
@@ -19,16 +20,15 @@ public class TestResourceHelperImpl extends CommonHelperImpl implements TestReso
 	
 	@Autowired private IrideService irideService;
 	
+	@Autowired private IrideHelper irideHelper;
+	
 	@PostConstruct
 	public void init() {
 		final String method = "init";
 		try {
 			Tracer.debug(LOG, getClass().getName(), method, "called");
 			
-			boolean testResource = testResources();
 			
-			
-			Tracer.debug(LOG, getClass().getName(), method, "testResource= " + testResource);
 			
 		}
 		catch(Exception e) {
@@ -45,9 +45,9 @@ public class TestResourceHelperImpl extends CommonHelperImpl implements TestReso
 		final String method = "testResources";
 		try {
 			Tracer.debug(LOG, getClass().getName(), method, "called");
-			return irideService.testResources();
-		} catch (IntegrationException e) {
-			Tracer.error(LOG, getClass().getName(), method, "IntegrationException " + e);
+			return irideHelper.testResources();
+		} catch (Exception e) {
+			Tracer.error(LOG, getClass().getName(), method, "Exception " + e);
 			throw new HelperException(e.getMessage());
 		}
 		finally {

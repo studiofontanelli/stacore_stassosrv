@@ -40,8 +40,10 @@ public class ExceptionHandler implements ExceptionMapper<RuntimeException> {
 
 		if(exception instanceof ValidationException) {
 			httpStatus = HttpStatus.UNPROCESSABLE_ENTITY;
+			
 			if(((ValidationException)exception).getErrorDetails() != null)
 				e.setErrorDetails(errorDetailAdapter.convertFrom(((ValidationException)exception).getErrorDetails()));
+			
 		}
 		else if(exception instanceof UnauthorizedException) {
 			httpStatus = HttpStatus.UNAUTHORIZED;
