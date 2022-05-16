@@ -27,6 +27,8 @@ public class CommonAspect {
 		try {
 			
 			Tracer.write(className, method, "CALLED");
+			if(1==12)
+				throw new Exception("STOP HERE");
 			stopWatch.start();
 			Object result = joinPoint.proceed();
 			if(showResult) {

@@ -3,6 +3,8 @@ package it.csi.stacore.stassosrv.api.dto;
 import java.util.Objects;
 import java.util.ArrayList;
 import io.swagger.annotations.ApiModel;
+import it.csi.stacore.stassosrv.api.dto.Cassa;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
@@ -13,20 +15,20 @@ public class Abilitazione  implements Serializable {
   // verra' utilizzata la seguente strategia serializzazione degli attributi: [implicit-camel-case] 
   private static final long serialVersionUID = 1L;
   
-  private String codice = null;
+  private List<Cassa> elencoCasse = new ArrayList<>();
 
   /**
-   * Codice Utente
+   * Elenco casse
    **/
   
-  @ApiModelProperty(example = "OP-Operatore, AP-Applicativo, BA-Batch", value = "Codice Utente")
+  @ApiModelProperty(value = "Elenco casse")
 
-  // nome originario nello yaml: codice 
-  public String getCodice() {
-    return codice;
+  // nome originario nello yaml: elencoCasse 
+  public List<Cassa> getElencoCasse() {
+    return elencoCasse;
   }
-  public void setCodice(String codice) {
-    this.codice = codice;
+  public void setElencoCasse(List<Cassa> elencoCasse) {
+    this.elencoCasse = elencoCasse;
   }
 
 
@@ -39,12 +41,12 @@ public class Abilitazione  implements Serializable {
       return false;
     }
     Abilitazione abilitazione = (Abilitazione) o;
-    return Objects.equals(codice, abilitazione.codice);
+    return Objects.equals(elencoCasse, abilitazione.elencoCasse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(codice);
+    return Objects.hash(elencoCasse);
   }
 
   @Override
@@ -52,7 +54,7 @@ public class Abilitazione  implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Abilitazione {\n");
     
-    sb.append("    codice: ").append(toIndentedString(codice)).append("\n");
+    sb.append("    elencoCasse: ").append(toIndentedString(elencoCasse)).append("\n");
     sb.append("}");
     return sb.toString();
   }

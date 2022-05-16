@@ -67,14 +67,26 @@ definitions:
     type: object
     description: Utente
     properties:
-      id:
+      nome:
         type: string
-        description: Id Utente
-        example: 'Identificativo Utente'
+        description: Nome Utente
+      cognome:
+        type: string
+        description: Cognome Utente
+      descrizione:
+        type: string
+        description: descrizione Utente
+      codiceFiscale:
+        type: string
+        description: codice fiscale
       tipoUtente:
         $ref: '#/definitions/TipoUtente'
       ente:
         $ref: '#/definitions/Ente'
+      profilo:
+        $ref: '#/definitions/Profilo'
+      abilitazione:
+        $ref: '#/definitions/Abilitazione'
       elencoCassa:
         type: array
         description: Elenco casse
@@ -101,10 +113,19 @@ definitions:
     type: object
     description: Ente
     properties:
+      id:
+        type: integer
+        format: int32
+        example: Id ente
+      codice:
+        type: string
+        description: Codice 
+      descrizione:
+        type: string
+        description: ACI
       email:
         type: string
         description: Email
-        example: 'Email Ente'
       indirizzo:
         type: string
         description: Indirizzo
@@ -125,30 +146,78 @@ definitions:
       provincia:
         type: string
         description: Provincia
+      sigla:
+        type: string
+        description: Sigla provincia  
+      dataInizioAttivita:
+        type: string
+        format: date
+        description: Data inizio attività    
+      abilitazioneRiscossione:
+        type: boolean
+        description: Indica se l'ente è abilitato alla riscossione 
+      elencoSportello:
+        type: array
+        description: Elenco sportelli
+        items:
+          $ref: '#/definitions/Sportello'
   Abilitazione:
     type: object
     description: Abilitazione
     properties:
-      codice:
-        type: string
-        description: Codice Utente
-        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+      elencoCasse:
+        type: array
+        description: Elenco casse
+        items:
+          $ref: '#/definitions/Cassa'
+  Profilo:
+    type: object
+    description: Profilo Utente
+    properties:
+      elencoAbilitazione:
+        type: array
+        description: Elenco casse
+        items:
+          $ref: '#/definitions/Abilitazione'
   Cassa:
     type: object
     description: Cassa
     properties:
+      id:
+        type: integer
+        format: int32
       codice:
         type: string
-        description: Codice Utente
-        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+        description: Codice 
+      descrizione:
+        type: string
+        description: Descrizione cassa
+      denominazione:
+        type: string
+        description: Denominazione cassa
+      idUtente:
+        type: string
+        description: Id utente
   Sportello:
     type: object
-    description: Cassa
+    description: Sportello
     properties:
+      id:
+        type: integer
+        format: int32
+        description: id sportello
       codice:
         type: string
-        description: Codice Utente
-        example: 'OP-Operatore, AP-Applicativo, BA-Batch'
+        description: Codice sportello
+      descrizione:
+        type: string
+        description: descrizione sportello
+      elencoCassa:
+        type: array
+        description: Elenco casse
+        items:
+          $ref: '#/definitions/Cassa'
+      
   GenericResponse:
     type: object
     description: Risposta di un servizio generico

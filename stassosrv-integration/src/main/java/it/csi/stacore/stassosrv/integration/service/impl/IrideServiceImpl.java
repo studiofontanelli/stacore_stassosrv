@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +16,12 @@ import it.csi.iride2.policy.base.nmsf.stub.base.entity.Application;
 import it.csi.iride2.policy.base.nmsf.stub.base.entity.Identita;
 import it.csi.iride2.policy.base.nmsf.stub.base.entity.UseCase;
 import it.csi.iride2.policy.base.nmsf.stub.interf.PolicyEnforcerBase;
-import it.csi.iride2.policy.base.nmsf.stub.interf.PolicyEnforcerBaseService;
 import it.csi.iride2.policy.base.nmsf.stub.interf.PolicyEnforcerBaseServiceLocator;
 import it.csi.stacore.stassosrv.integration.exception.IntegrationException;
 import it.csi.stacore.stassosrv.integration.service.IrideService;
 import it.csi.stacore.stassosrv.util.Constants;
 import it.csi.stacore.stassosrv.util.Environment;
 import it.csi.stacore.stassosrv.util.Tracer;
-import it.csi.stacore.stassosrv.util.XmlSerializer;
 
 @Service("irideService")
 public class IrideServiceImpl implements IrideService {

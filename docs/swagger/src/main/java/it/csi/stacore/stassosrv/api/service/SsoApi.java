@@ -40,5 +40,5 @@ public interface SsoApi  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = GenericResponse.class),
         
         @io.swagger.annotations.ApiResponse(code = 500, message = "Internal server error", response = ErrorDto.class) })
-    public Response getUtente( @NotNull @QueryParam("identita") String identita, @NotNull @QueryParam("codiceApplicazione") String codiceApplicazione,@Context SecurityContext securityContext, @Context HttpHeaders httpHeaders );
+    public Response getUtente( @NotNull @QueryParam("identita") String identita,@Context SecurityContext securityContext, @Context HttpHeaders httpHeaders );
 }

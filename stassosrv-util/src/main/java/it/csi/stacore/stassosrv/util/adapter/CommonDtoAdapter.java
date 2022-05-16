@@ -91,7 +91,7 @@ public abstract class CommonDtoAdapter<T, V> implements DtoAdapterInterface <T, 
 		T t = null;
 		try{
 			if(v != null) {
-				//Tracer.debug(LOG, getClass().getSimpleName(), method, "converting object " +  v.getClass().getSimpleName());
+				Tracer.debug(LOG, getClass().getSimpleName(), method, "converting object " +  v.getClass().getSimpleName());
 				t = getMapper().map(v, tClazz);
 			}
 		}
@@ -108,12 +108,12 @@ public abstract class CommonDtoAdapter<T, V> implements DtoAdapterInterface <T, 
 		List<T> tList = null;
 
 		if(!CollectionUtils.isEmpty(vList)) {
-			//Tracer.debug(LOG, getClass().getSimpleName(), method, "converting # " + vList.size() + " objects");
+			Tracer.debug(LOG, getClass().getSimpleName(), method, "converting # " + vList.size() + " objects");
 			tList = new ArrayList<T>();
 			for (V v : vList) {
 				tList.add(convertFrom(v));
 			}
-			//Tracer.debug(LOG, getClass().getSimpleName(), method, "tList # " + tList.size() + " size");
+			Tracer.debug(LOG, getClass().getSimpleName(), method, "tList # " + tList.size() + " size");
 		}
 		return tList;
 	}

@@ -1,0 +1,55 @@
+<list-query>
+
+   
+
+    <query name="it.csi.stacore.stassosrv.integration.dao.oracle.query.select.utente.SelectUtenteById"><![CDATA[
+	SELECT
+	  u.IDENTIFICATIVO_UTENTE,
+	  u.ID_TIPOUTENTE,
+	  u.COGNOME,
+	  u.NOME,
+	  u.ABILITAZIONE_PAGAMENTO_MANUALE,
+	  tu.CODICE as TIPO_UTENTE_CODICE,
+	  tu.DESCRIZIONE as TIPO_UTENTE_DESCRIZIONE,
+	  u.ID_ENTE as ID_ENTE
+	FROM
+	  tau_t_utente u,
+	  tau_d_tipoutente tu
+	WHERE
+	  u.ID_TIPOUTENTE=tu.ID_TIPOUTENTE AND
+	  IDENTIFICATIVO_UTENTE = ?
+  ]]></query>
+  
+  <query name="it.csi.stacore.stassosrv.integration.dao.oracle.query.select.utente.SelectEnte">
+        <body><![CDATA[
+	SELECT
+	  e.ID_ENTE as ENTE_ID_ENTE,
+	  e.EMAIL as ENTE_EMAIL,
+	  e.INDIRIZZO as ENTE_INDIRIZZO,
+	  e.CIVICO as ENTE_CIVICO,
+	  e.CAP as ENTE_CAP,
+	  e.COMUNE as ENTE_COMUNE,
+	  e.CODICE_FISCALE as ENTE_CODICE_FISCALE,
+	  e.PROVINCIA as ENTE_PROVINCIA,
+	  e.CODICE as ENTE_CODICE,
+	  e.SIGLATOP as ENTE_SIGLATOP,
+	  e.DESCRIZIONE as ENTE_DESCRIZIONE,
+	  e.DATA_INIZIO_ATTIVITA as ENTE_DATA_INIZIO_ATTIVITA,
+	  e.ABILITAZIONE_RISCOSSIONE
+	FROM
+	  tau_t_ente e
+        ]]>
+        </body>
+        <where><![CDATA[
+	WHERE
+        ]]>
+            <paramWhere id="idEnte">e.ID_ENTE = ?</paramWhere>
+            <paramWhere id="idSportello">e.ID_ENTE = (SELECT ID_ENTE FROM TAU_T_SPORTELLO WHERE ID_SPORTELLO = ?)</paramWhere>
+            <paramWhere id="abilitazioneRiscossione">e.ABILITAZIONE_RISCOSSIONE = ? </paramWhere>
+        </where>
+    </query>
+  
+  
+  
+    
+</list-query>
