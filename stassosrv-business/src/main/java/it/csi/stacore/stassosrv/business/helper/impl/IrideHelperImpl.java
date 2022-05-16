@@ -18,12 +18,12 @@ import it.csi.iride2.policy.base.nmsf.stub.base.entity.Identita;
 import it.csi.iride2.policy.base.nmsf.stub.base.entity.UseCase;
 import it.csi.stacore.stassosrv.api.dto.Utente;
 import it.csi.stacore.stassosrv.business.adapter.UtenteAdapter;
-import it.csi.stacore.stassosrv.business.dto.AutorizzazioneDto;
 import it.csi.stacore.stassosrv.business.dto.ErrorDetailDto;
 import it.csi.stacore.stassosrv.business.exception.HelperException;
 import it.csi.stacore.stassosrv.business.exception.ValidationException;
 import it.csi.stacore.stassosrv.business.helper.IrideHelper;
 import it.csi.stacore.stassosrv.integration.bo.factory.UtenteFactory;
+import it.csi.stacore.stassosrv.integration.bo.utente.Autorizzazione;
 import it.csi.stacore.stassosrv.integration.dao.UtenteDao;
 import it.csi.stacore.stassosrv.integration.exception.IntegrationException;
 import it.csi.stacore.stassosrv.integration.service.IrideService;
@@ -110,168 +110,168 @@ public class IrideHelperImpl extends CommonHelperImpl implements IrideHelper {
 			abilitazioniByUseCase.put("STATO SOSPESO", listaAutorizzazioni_STATO_SOSPESO);
 			abilitazioniByUseCase.put("GESTIONE_CARTOLINE", listaAutorizzazioni_GESTIONE_CARTOLINE);
 
-			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("avvisi.nuovaSegnalazione"));
-			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("avvisi.consultareSegnalazioni"));
-			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("avvisi.consultareAvvisiScadenza"));
-			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("avvisi.consultareAvvisiAccertamento"));
-//			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("avvisi.consultareAvvisiBonario"));
-			listaAutorizzazioni_GESTIONE_AVVISI.add(new AutorizzazioneDto("avvisiBonifica"));
+			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("avvisi.nuovaSegnalazione"));
+			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("avvisi.consultareSegnalazioni"));
+			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("avvisi.consultareAvvisiScadenza"));
+			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("avvisi.consultareAvvisiAccertamento"));
+//			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("avvisi.consultareAvvisiBonario"));
+			listaAutorizzazioni_GESTIONE_AVVISI.add(new Autorizzazione("avvisiBonifica"));
 			
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("riscossioneGenerico"));
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("riscossione.riscuotereTributo"));
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("riscossione.consultarePagamenti"));
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("riscossione.consultareRiepiloghi"));
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("riscossione.assegnareCassa"));
-			listaAutorizzazioni_RISCOSSIONE_S.add(new AutorizzazioneDto("riscossioneInserimento"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("home"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("riscossioneGenerico"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("riscossione.riscuotereTributo"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("riscossione.consultarePagamenti"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("riscossione.consultareRiepiloghi"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("riscossione.assegnareCassa"));
+			listaAutorizzazioni_RISCOSSIONE_S.add(new Autorizzazione("riscossioneInserimento"));
 
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("gestionale.statisticheDatiFiscali"));
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("gestionale.statisticheDatiTecnici"));
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("gestionale.statisticheEnti"));
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("gestionale.operazioniBonifica"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("home"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("gestionale.statisticheDatiFiscali"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("gestionale.statisticheDatiTecnici"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("gestionale.statisticheEnti"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("gestionale.operazioniBonifica"));
 			// SB60
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			listaAutorizzazioni_STATISTICHE_ADMIN.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			listaAutorizzazioni_STATISTICHE_ADMIN.add(new Autorizzazione("gestionale.reportBonifiche"));
 
-			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new AutorizzazioneDto("gestionale.agevolazione"));
-			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new AutorizzazioneDto("esenzioniAdmin"));
+			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new Autorizzazione("home"));
+			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new Autorizzazione("gestionale.agevolazione"));
+			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new Autorizzazione("esenzioniAdmin"));
 			// SB60
-			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_BONIFICA_ESE_ADMIN.add(new Autorizzazione("gestionale.reportBonifiche"));
 
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionaleGenerico"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.posizione"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.scadenza"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.bollettino"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.agevolazione"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.calcoloTassa"));
-//			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.operazioniBonifica"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.statisticheDatiFiscali"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.statisticheDatiTecnici"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.statisticheEnti"));
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionaleBonifica"));
-//			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.tracciamenti"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionaleGenerico"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.posizione"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.scadenza"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.bollettino"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.agevolazione"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.calcoloTassa"));
+//			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.operazioniBonifica"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.statisticheDatiFiscali"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.statisticheDatiTecnici"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.statisticheEnti"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionaleBonifica"));
+//			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.tracciamenti"));
 			// SB60
-			listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_GESTIONALE_S.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_GESTIONALE_S.add(new Autorizzazione("gestionale.reportBonifiche"));
 
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionaleGenerico"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.posizione"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.scadenza"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.bollettino"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.agevolazione"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.calcoloTassa"));
-//			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.operazioniBonifica"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.statisticheDatiFiscali"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.statisticheDatiTecnici"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.statisticheEnti"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionaleGenerico"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.posizione"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.scadenza"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.bollettino"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.agevolazione"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.calcoloTassa"));
+//			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.operazioniBonifica"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.statisticheDatiFiscali"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.statisticheDatiTecnici"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.statisticheEnti"));
 			// SB60
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("gestionale.reportBonifiche"));
 			// SB28
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("avvisi.consultareAvvisiScadenza"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("avvisi.consultareAvvisiAccertamento"));
-			listaAutorizzazioni_GESTIONALE_V.add(new AutorizzazioneDto("GESTIONALE_V"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("avvisi.consultareAvvisiScadenza"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("avvisi.consultareAvvisiAccertamento"));
+			listaAutorizzazioni_GESTIONALE_V.add(new Autorizzazione("GESTIONALE_V"));
 
-			listaAutorizzazioni_STATISTICHE_USER.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_STATISTICHE_USER.add(new AutorizzazioneDto("gestionale.statisticheDatiFiscali"));
-			listaAutorizzazioni_STATISTICHE_USER.add(new AutorizzazioneDto("gestionale.statisticheDatiTecnici"));
-			listaAutorizzazioni_STATISTICHE_USER.add(new AutorizzazioneDto("gestionale.statisticheEnti"));
+			listaAutorizzazioni_STATISTICHE_USER.add(new Autorizzazione("home"));
+			listaAutorizzazioni_STATISTICHE_USER.add(new Autorizzazione("gestionale.statisticheDatiFiscali"));
+			listaAutorizzazioni_STATISTICHE_USER.add(new Autorizzazione("gestionale.statisticheDatiTecnici"));
+			listaAutorizzazioni_STATISTICHE_USER.add(new Autorizzazione("gestionale.statisticheEnti"));
 			// SB60
-			listaAutorizzazioni_STATISTICHE_USER.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_STATISTICHE_USER.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_STATISTICHE_USER.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_STATISTICHE_USER.add(new Autorizzazione("gestionale.reportBonifiche"));
 
-			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new AutorizzazioneDto("gestionale.agevolazione"));
-			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new AutorizzazioneDto("esenzioniUserA"));
+			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new Autorizzazione("home"));
+			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new Autorizzazione("gestionale.agevolazione"));
+			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new Autorizzazione("esenzioniUserA"));
 			// SB60
-			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_BONIFICA_ESE_USERA.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_BONIFICA_ESE_USERA.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_BONIFICA_ESE_USERA.add(new Autorizzazione("gestionale.reportBonifiche"));
 
-			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new AutorizzazioneDto("gestionale.agevolazione"));
-			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new AutorizzazioneDto("esenzioniUserB"));
+			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new Autorizzazione("home"));
+			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new Autorizzazione("gestionale.agevolazione"));
+			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new Autorizzazione("esenzioniUserB"));
 			// SB60
-			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
+			listaAutorizzazioni_BONIFICA_ESE_USERB.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
 			
-			listaAutorizzazioni_RISCOSSIONE_V.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_RISCOSSIONE_V.add(new AutorizzazioneDto("riscossioneGenerico"));
-			listaAutorizzazioni_RISCOSSIONE_V.add(new AutorizzazioneDto("riscossione.riscuotereTributo"));
+			listaAutorizzazioni_RISCOSSIONE_V.add(new Autorizzazione("home"));
+			listaAutorizzazioni_RISCOSSIONE_V.add(new Autorizzazione("riscossioneGenerico"));
+			listaAutorizzazioni_RISCOSSIONE_V.add(new Autorizzazione("riscossione.riscuotereTributo"));
 
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("rimborsiGenerico"));
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("rimborsi.creareIstanza"));
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("rimborsi.consultareIstanza"));
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("rimborsi.creareDetermina"));
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("rimborsi.consultareDetermina"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("rimborsiGenerico"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("rimborsi.creareIstanza"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("rimborsi.consultareIstanza"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("rimborsi.creareDetermina"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("rimborsi.consultareDetermina"));
 			//sb28
-			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new AutorizzazioneDto("GESTIONE_RIMBORSI"));
+			listaAutorizzazioni_GESTIONE_RIMBORSI.add(new Autorizzazione("GESTIONE_RIMBORSI"));
 
 			//SB28
-			listaAutorizzazioni_USER_CONS_RIM.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_USER_CONS_RIM.add(new AutorizzazioneDto("rimborsiGenerico"));
-			listaAutorizzazioni_USER_CONS_RIM.add(new AutorizzazioneDto("rimborsi.consultareIstanza"));
-			listaAutorizzazioni_USER_CONS_RIM.add(new AutorizzazioneDto("USER_CONS_RIM"));
+			listaAutorizzazioni_USER_CONS_RIM.add(new Autorizzazione("home"));
+			listaAutorizzazioni_USER_CONS_RIM.add(new Autorizzazione("rimborsiGenerico"));
+			listaAutorizzazioni_USER_CONS_RIM.add(new Autorizzazione("rimborsi.consultareIstanza"));
+			listaAutorizzazioni_USER_CONS_RIM.add(new Autorizzazione("USER_CONS_RIM"));
 
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("esenzioniGenerico"));
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("esenzioni.nuovaIstruttoriaDisabili"));
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("esenzioni.nuovaIstruttoriaEsenzioni"));
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("esenzioni.consultarePraticheDisabili"));
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("esenzioni.consultareAltrePratiche"));
-			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new AutorizzazioneDto("esenzioni.allineareSistema"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("esenzioniGenerico"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("esenzioni.nuovaIstruttoriaDisabili"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("esenzioni.nuovaIstruttoriaEsenzioni"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("esenzioni.consultarePraticheDisabili"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("esenzioni.consultareAltrePratiche"));
+			listaAutorizzazioni_GESTIONE_ESENZIONI.add(new Autorizzazione("esenzioni.allineareSistema"));
 
-			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new AutorizzazioneDto("ginGenerico"));
-			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new AutorizzazioneDto("intermediari.gin"));
-			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new AutorizzazioneDto("intermediari.consultareAgenzie"));
+			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new Autorizzazione("ginGenerico"));
+			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new Autorizzazione("intermediari.gin"));
+			listaAutorizzazioni_GESTIONE_INTERMEDIARI.add(new Autorizzazione("intermediari.consultareAgenzie"));
 
-			listaAutorizzazioni_GESTIONE_SAP.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_SAP.add(new AutorizzazioneDto("gestionale.gestioneSmartCard"));
+			listaAutorizzazioni_GESTIONE_SAP.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_SAP.add(new Autorizzazione("gestionale.gestioneSmartCard"));
 
-			listaAutorizzazioni_SERVIZIO_SAP.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_SERVIZIO_SAP.add(new AutorizzazioneDto("gestionale.gestioneSmartCard"));
-			listaAutorizzazioni_SERVIZIO_SAP.add(new AutorizzazioneDto("gestionale.richiestaSmartCard"));
+			listaAutorizzazioni_SERVIZIO_SAP.add(new Autorizzazione("home"));
+			listaAutorizzazioni_SERVIZIO_SAP.add(new Autorizzazione("gestionale.gestioneSmartCard"));
+			listaAutorizzazioni_SERVIZIO_SAP.add(new Autorizzazione("gestionale.richiestaSmartCard"));
 			// SB60
-			listaAutorizzazioni_SERVIZIO_SAP.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_SERVIZIO_SAP.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_SERVIZIO_SAP.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_SERVIZIO_SAP.add(new Autorizzazione("gestionale.reportBonifiche"));
 			
-			listaAutorizzazioni_CONSULTAREAVVISIBONARIO.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_CONSULTAREAVVISIBONARIO.add(new AutorizzazioneDto("avvisi.consultareAvvisiBonario"));
+			listaAutorizzazioni_CONSULTAREAVVISIBONARIO.add(new Autorizzazione("home"));
+			listaAutorizzazioni_CONSULTAREAVVISIBONARIO.add(new Autorizzazione("avvisi.consultareAvvisiBonario"));
 			
-			listaAutorizzazioni_GESTIONE_CONT.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_CONT.add(new AutorizzazioneDto("avvisi.contenziosoPuntuale"));
+			listaAutorizzazioni_GESTIONE_CONT.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_CONT.add(new Autorizzazione("avvisi.contenziosoPuntuale"));
 			
-			listaAutorizzazioni_GESTIONE_ICAR.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_ICAR.add(new AutorizzazioneDto("gestionale.tracciamenti"));
+			listaAutorizzazioni_GESTIONE_ICAR.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_ICAR.add(new Autorizzazione("gestionale.tracciamenti"));
 			// SB60
-			listaAutorizzazioni_GESTIONE_ICAR.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_GESTIONE_ICAR.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_GESTIONE_ICAR.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_GESTIONE_ICAR.add(new Autorizzazione("gestionale.reportBonifiche"));
 			
-			listaAutorizzazioni_USER_SITCONT_A.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_USER_SITCONT_A.add(new AutorizzazioneDto("gestionale.situazioneContributiva"));
+			listaAutorizzazioni_USER_SITCONT_A.add(new Autorizzazione("home"));
+			listaAutorizzazioni_USER_SITCONT_A.add(new Autorizzazione("gestionale.situazioneContributiva"));
 			// SB60
-			listaAutorizzazioni_USER_SITCONT_A.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_USER_SITCONT_A.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_USER_SITCONT_A.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_USER_SITCONT_A.add(new Autorizzazione("gestionale.reportBonifiche"));
 			
-			listaAutorizzazioni_USER_SITCONT_B.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_USER_SITCONT_B.add(new AutorizzazioneDto("gestionale.situazioneContributiva"));
-			listaAutorizzazioni_USER_SITCONT_B.add(new AutorizzazioneDto("situazioneContributivaExportExcel"));
+			listaAutorizzazioni_USER_SITCONT_B.add(new Autorizzazione("home"));
+			listaAutorizzazioni_USER_SITCONT_B.add(new Autorizzazione("gestionale.situazioneContributiva"));
+			listaAutorizzazioni_USER_SITCONT_B.add(new Autorizzazione("situazioneContributivaExportExcel"));
 			// SB60
-			listaAutorizzazioni_USER_SITCONT_B.add(new AutorizzazioneDto("gestionale.documentazioneBonifiche"));
-			//listaAutorizzazioni_USER_SITCONT_B.add(new AutorizzazioneDto("gestionale.reportBonifiche"));
+			listaAutorizzazioni_USER_SITCONT_B.add(new Autorizzazione("gestionale.documentazioneBonifiche"));
+			//listaAutorizzazioni_USER_SITCONT_B.add(new Autorizzazione("gestionale.reportBonifiche"));
 			
 			// non ha nessuna voce di menu specifica associata, ma solo funzionalita'
-			listaAutorizzazioni_STATO_SOSPESO.add(new AutorizzazioneDto("home")); 
-			listaAutorizzazioni_STATO_SOSPESO.add(new AutorizzazioneDto("statoSospeso")); 
+			listaAutorizzazioni_STATO_SOSPESO.add(new Autorizzazione("home")); 
+			listaAutorizzazioni_STATO_SOSPESO.add(new Autorizzazione("statoSospeso")); 
 			
-			listaAutorizzazioni_GESTIONE_CARTOLINE.add(new AutorizzazioneDto("home"));
-			listaAutorizzazioni_GESTIONE_CARTOLINE.add(new AutorizzazioneDto("gestioneCartoline")); 
+			listaAutorizzazioni_GESTIONE_CARTOLINE.add(new Autorizzazione("home"));
+			listaAutorizzazioni_GESTIONE_CARTOLINE.add(new Autorizzazione("gestioneCartoline")); 
 
 
 		}
@@ -363,7 +363,6 @@ public class IrideHelperImpl extends CommonHelperImpl implements IrideHelper {
 	public Utente getUtente(String token) throws HelperException {
 		final String method = "getUtente";
 		Utente  utente = new Utente();
-		Set autorizzazioneSet = new HashSet();
 		try {
 
 			List<ErrorDetailDto> errors = new ArrayList<>();
@@ -376,14 +375,12 @@ public class IrideHelperImpl extends CommonHelperImpl implements IrideHelper {
 			}
 			Identita identita = parseToken(token);
 			List<UseCase> useCases = irideService.findUseCasesForPersonaInApplication(identita);
-			
-			
+		
 			if (useCases == null || useCases.isEmpty()) {
 				throw new HelperException("Nessun caso d'uso associato", errors);
 			}
 			
 			it.csi.stacore.stassosrv.integration.bo.utente.Utente  utenteIride  = UtenteFactory.getInstance().buildByIdentitaAndUseCases(identita, useCases);
-			
 			it.csi.stacore.stassosrv.integration.bo.utente.Utente utenteTau = utenteDao.loadUtenteById(identita.getCodFiscale());
 			
 			//Tracer.debug(LOG, getClass().getName(), method, "utenteIride\n " + XmlSerializer.objectToXml(utenteIride));
@@ -392,8 +389,6 @@ public class IrideHelperImpl extends CommonHelperImpl implements IrideHelper {
 			it.csi.stacore.stassosrv.integration.bo.utente.Utente utenteBo = componiUtentiIrideETau(utenteIride, utenteTau);
 
 			Tracer.debug(LOG, getClass().getName(), method, "utenteBo\n " + XmlSerializer.objectToXml(utenteBo));
-			
-			
 			utente = utenteAdapter.convertTo(utenteBo);
 			
 		} catch (IntegrationException e) {
