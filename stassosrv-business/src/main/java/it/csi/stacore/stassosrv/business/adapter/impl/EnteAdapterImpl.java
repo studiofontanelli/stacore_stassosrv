@@ -36,21 +36,15 @@ public class EnteAdapterImpl extends CommonDtoAdapter<Ente, it.csi.stacore.stass
 	@Override
 	public it.csi.stacore.stassosrv.api.dto.Ente convertTo(it.csi.stacore.stassosrv.integration.bo.utente.Ente t) throws DtoConversionException {
 		final String method = "convertTo";
-		Tracer.debug(LOG, getClass().getName(), method, "BEGIN");
 		try {
-			
 			it.csi.stacore.stassosrv.api.dto.Ente ente =  super.convertTo(t);
 			ente.setId((int) t.getId().getId());
 			ente.setElencoSportello(sportelloAdapter.convertTo(t.getSportello()));
-			
 			return ente;
 		}
 		catch(Exception e) {
 			Tracer.error(LOG, getClass().getName(), method, "Exception " + e);
 			throw new DtoConversionException("Errore in fase di conversione ", e);
-		}
-		finally {
-			Tracer.debug(LOG, getClass().getName(), method, "END");
 		}
 	}
 

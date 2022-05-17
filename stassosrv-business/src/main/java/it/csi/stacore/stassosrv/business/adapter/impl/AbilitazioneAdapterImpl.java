@@ -33,7 +33,6 @@ public class AbilitazioneAdapterImpl extends CommonDtoAdapter<it.csi.stacore.sta
 	@Override
 	public Abilitazione convertTo(it.csi.stacore.stassosrv.integration.bo.utente.Abilitazione t) throws DtoConversionException {
 		final String method = "convertTo";
-		Tracer.debug(LOG, getClass().getName(), method, "BEGIN");
 		try {
 			Abilitazione abilitazione =  super.convertTo(t);
 			abilitazione.setElencoCasse(cassaAdapter.convertTo(t.getCassaList()));
@@ -43,9 +42,7 @@ public class AbilitazioneAdapterImpl extends CommonDtoAdapter<it.csi.stacore.sta
 			Tracer.error(LOG, getClass().getName(), method, "Exception " + e);
 			throw new DtoConversionException("Errore in fase di conversione ", e);
 		}
-		finally {
-			Tracer.debug(LOG, getClass().getName(), method, "END");
-		}
+		
 	}
 
 	

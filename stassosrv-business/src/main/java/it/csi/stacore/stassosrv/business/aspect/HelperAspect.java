@@ -23,12 +23,12 @@ public class HelperAspect extends CommonAspect{
 
 	@Around(value = "execution(* it.csi.stacore.stassosrv.business.helper.impl..*.*(..))", argNames = "joinPoint")
 	public Object stopWatchMethod(ProceedingJoinPoint joinPoint) throws Throwable {
-		if(1==1)
+		if(1==12)
 			throw new Exception("STOP EVERYTHING");
 		
 		return super.stopWatchAspect(joinPoint);
 	}
-	//it.csi.stacore.stassosrv.business.helper
+	
 	@Before(value="execution(* it.csi.stacore.stassosrv.business.helper.impl..*.*(..))")
 	public void beforeAspect(JoinPoint joinPoint) throws Throwable {
 		super.beforeAspect(joinPoint);

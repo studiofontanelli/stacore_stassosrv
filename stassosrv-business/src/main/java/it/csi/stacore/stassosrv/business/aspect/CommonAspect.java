@@ -21,14 +21,9 @@ public class CommonAspect {
 	public Object stopWatchAspect(ProceedingJoinPoint joinPoint, boolean showResult) throws Throwable {
 		String className = joinPoint.getTarget().getClass().getName();
 		String method = joinPoint.getSignature().getName();
-
 		Tracer.debug(LOG, className, method, "BEGIN");
 		stopWatch = new StopWatch(LOGGER_PREFIX);
 		try {
-			
-			Tracer.write(className, method, "CALLED");
-			if(1==12)
-				throw new Exception("STOP HERE");
 			stopWatch.start();
 			Object result = joinPoint.proceed();
 			if(showResult) {
@@ -44,14 +39,23 @@ public class CommonAspect {
 			stopWatch.dumpElapsed(className, method, "tempo esecuzione di [" +LOGGER_PREFIX+"]::["  + method + "]", "(ASPECT)");
 		}
 	}
+	
+	public Object logAspect(ProceedingJoinPoint joinPoint) throws Throwable {
+		String className = joinPoint.getTarget().getClass().getName();
+		String method = joinPoint.getSignature().getName();
+		Tracer.debug(LOG, className, method, "BEGIN");
+		stopWatch = new StopWatch(LOGGER_PREFIX);
+		try {
+			return joinPoint.proceed();
+		}
+		finally {
+			Tracer.debug(LOG, className, method, "END");
+		}
+	}
 
 	public Object stopWatchAspect(ProceedingJoinPoint joinPoint) throws Throwable {
 		return stopWatchAspect(joinPoint, false);
 	}
-
-
-
-
 
 	public void beforeAspect(JoinPoint joinPoint) throws Throwable {
 

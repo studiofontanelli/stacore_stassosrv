@@ -33,7 +33,6 @@ public class SportelloAdapterImpl extends CommonDtoAdapter<it.csi.stacore.stasso
 	@Override
 	public Sportello convertTo(it.csi.stacore.stassosrv.integration.bo.utente.Sportello t) throws DtoConversionException {
 		final String method = "convertTo";
-		Tracer.debug(LOG, getClass().getName(), method, "BEGIN");
 		try {
 			
 			Sportello sportello =  super.convertTo(t);
@@ -42,7 +41,6 @@ public class SportelloAdapterImpl extends CommonDtoAdapter<it.csi.stacore.stasso
 				if(LOG.isErrorEnabled()) {
 					Tracer.debug(LOG, getClass().getName(), method, "collegate " + t.getCassaList().size() + " casse allo sportello + " + sportello.getId());
 				}
-				
 			}
 			sportello.setElencoCassa(cassaAdapter.convertTo(t.getCassaList()));
 			return sportello;
@@ -50,9 +48,6 @@ public class SportelloAdapterImpl extends CommonDtoAdapter<it.csi.stacore.stasso
 		catch(Exception e) {
 			Tracer.error(LOG, getClass().getName(), method, "Exception " + e);
 			throw new DtoConversionException("Errore in fase di conversione ", e);
-		}
-		finally {
-			Tracer.debug(LOG, getClass().getName(), method, "END");
 		}
 	}
 

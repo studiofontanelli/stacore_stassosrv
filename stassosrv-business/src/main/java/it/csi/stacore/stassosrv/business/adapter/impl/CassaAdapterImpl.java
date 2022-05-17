@@ -29,9 +29,7 @@ public class CassaAdapterImpl extends CommonDtoAdapter<it.csi.stacore.stassosrv.
 	@Override
 	public Cassa convertTo(it.csi.stacore.stassosrv.integration.bo.utente.Cassa t) throws DtoConversionException {
 		final String method = "convertTo";
-		Tracer.debug(LOG, getClass().getName(), method, "BEGIN");
 		try {
-			
 			Cassa cassa =  super.convertTo(t);
 			cassa.setId(t.getIdCassa().intValue());
 			return cassa;
@@ -39,9 +37,6 @@ public class CassaAdapterImpl extends CommonDtoAdapter<it.csi.stacore.stassosrv.
 		catch(Exception e) {
 			Tracer.error(LOG, getClass().getName(), method, "Exception " + e);
 			throw new DtoConversionException("Errore in fase di conversione ", e);
-		}
-		finally {
-			Tracer.debug(LOG, getClass().getName(), method, "END");
 		}
 	}
 

@@ -9,16 +9,15 @@
 
 
 	<modules>
-		<module>stassosrv-dto</module>
-		<module>stassosrv-util</module>
-		<module>stassosrv-integration</module>
-		<module>stassosrv-business</module>
 		<module>stassosrv-api</module>
 		<module>stassosrv-ear</module>
+		<module>stassosrv-business</module>
+		<module>stassosrv-integration</module>
+		<module>stassosrv-dto</module>
+		<module>stassosrv-util</module>
 		<module>stassosrv-tar</module>
 	</modules>
-
-
+	
 	<!-- PROJECT META INFORMATIONS -->
 	<organization>
 		<name>CSI PIEMONTE</name>
@@ -82,25 +81,24 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>${springframework.version}</version>
-
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-binding</artifactId>
-			<version>1.0.6</version>
+			<version>${spring-binding.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
-			<version>2.9.0</version>
+			<version>${ehcache.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>xstream</groupId>
 			<artifactId>xstream</artifactId>
-			<version>1.2.2</version>
+			<version>${xstream.version}</version>
 		</dependency>
 
 
@@ -109,26 +107,6 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${org.aspectj.version}</version>
 		</dependency>
-
-		<!-- ORM -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}	</version>
-		</dependency>
-
-		<!-- JSR 303 with Hibernate Validator -->
-		<!-- <dependency> <groupId>javax.validation</groupId> <artifactId>validation-api</artifactId> 
-			<version>1.0.0.GA</version> </dependency> -->
-		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-validator</artifactId> 
-			<version>4.1.0.Final</version> </dependency> -->
-		<!-- COMMON UTILITIES -->
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -256,23 +234,23 @@
 		<commons-httpclient.version>3.1</commons-httpclient.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 		<commons-discovery.version>0.2</commons-discovery.version>
-		<commons-io.version>2.1.0.redhat-4</commons-io.version>
+		<commons-io.version>2.5</commons-io.version>
 		<commons-lang.version>2.6.0.redhat-4</commons-lang.version>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
 		<commons-logging.version>1.1.1-redhat-1</commons-logging.version>
 		<commons-pool.version>1.6.0.redhat-7</commons-pool.version>
 		<commons-collections4.version>4.4</commons-collections4.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
-
-
-
-
+		<commons-digester3.version>3.0</commons-digester3.version>
+	
+	
 		<axis.version>1.4</axis.version>
 		<cglib.version>2.2.2</cglib.version>
 
 		<csi.lib.version>1.4.6</csi.lib.version>
 		<coop-diag.version>1.2.1</coop-diag.version>
-
+	
+		<!-- EHCACHE -->
 		<ehcache.version>2.9.0</ehcache.version>
 
 		<jaxws-rt.version>2.1.7</jaxws-rt.version>
@@ -281,25 +259,15 @@
 		<junit.version>4.11</junit.version>
 
 
-		<!-- HIBERNATE -->
-		<!-- <hibernate.version>5.6.3.Final</hibernate.version> -->
-
-		<hibernate.version>4.3.0.Final</hibernate.version>
-		<spring.data.jpa.version>1.5.0.RELEASE</spring.data.jpa.version>
-
-
-
-		<mybatis.version>3.4.5</mybatis.version>
-		<mybatis.generator.version>1.3.7</mybatis.generator.version>
-		<mybatis-spring.version>1.3.1</mybatis-spring.version>
-		<mybatis-generator-core.version>1.3.7</mybatis-generator-core.version>
-
 		<saaj-api.version>2.1.1</saaj-api.version>
 		<servlet-api.version>2.4</servlet-api.version>
 		<soap.version>2.3.1</soap.version>
 		<slf4j.version>1.7.25</slf4j.version>
+		<javax.xml.soap.version>1.4</javax.xml.soap.version>
+		
+		
+		
 		<spring-binding.version>1.0.6</spring-binding.version>
-
 
 		<dozer.version>5.4.0</dozer.version>
 
@@ -307,23 +275,34 @@
 
 
 		<springframework.version>4.3.24.RELEASE</springframework.version>
+		<spring-binding.version>1.0.6</spring-binding.version>
 		<spring-ws-core.version>3.0.0.RELEASE</spring-ws-core.version>
+		
+		<!-- swagger -->
 		<swagger-jaxrs.version>1.5.9</swagger-jaxrs.version>
 		<swagger-annotation.version>1.5.9</swagger-annotation.version>
+		<swagger-codegen-maven-plugin.version>2.4.25</swagger-codegen-maven-plugin.version>
+		
 
 		<wsdl4j.version>1.6.3.redhat-1</wsdl4j.version>
-		<xstream.version>1.2.2</xstream.version>
+		
 
 		<guava.version>19.0</guava.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<junit.version>4.12</junit.version>
 
-		<!-- aspectj -->
-		<org.aspectj.version>1.6.11</org.aspectj.version>
-
-
+		
 		<!-- resteasy -->
 		<resteasy.version>3.7.0.Final</resteasy.version>
+		
+		<!-- aspectj -->
+		<org.aspectj.version>1.6.11</org.aspectj.version>
+		
+		<!-- XSTREAM -->	
+		<xstream.version>1.2.2</xstream.version>
+		
+		<joda-time.version>2.10.5</joda-time.version>
+		
 
 		<!-- Maven plugins -->
 

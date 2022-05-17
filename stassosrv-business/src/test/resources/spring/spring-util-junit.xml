@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/util
+                        http://www.springframework.org/schema/util/spring-util.xsd
+                        http://www.springframework.org/schema/cache
+						http://www.springframework.org/schema/cache/spring-cache.xsd
+                        http://www.springframework.org/schema/aop
+					    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:component-scan base-package="it.csi.stacore.stassosrv.util" />
+
+	<!-- Process annotations on registered beans like @Autowired... -->
+	<context:annotation-config />
+
+	<bean id="applicationContextManager" class="it.csi.stacore.stassosrv.util.ApplicationContextManager" lazy-init="false" />
+
+	<!-- Enables the caching through annotations -->
+	<cache:annotation-driven key-generator="cacheKeyGenerator" />
+
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+		p:shared="true">
+		<property name="configLocation" value="classpath:/ehcache/ehcache.xml" />
+	</bean>
+
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcache" />
+	</bean>
+
+
+	<bean id="cacheKeyGenerator" class="it.csi.stacore.stassosrv.util.CacheKeyGenerator" />
+
+
+
+	<!-- Dozer -->
+	<bean id="mapper" class="org.dozer.DozerBeanMapper">
+	    <property name="mappingFiles">
+	        <list>
+	            <value>dozer/dozer-bean-mappings.xml</value>
+	        </list>
+	    </property>
+	</bean>
+
+
+
+
+
+
+
+
+
+
+</beans>

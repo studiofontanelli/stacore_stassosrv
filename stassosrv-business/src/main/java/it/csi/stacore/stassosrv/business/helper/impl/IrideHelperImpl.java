@@ -38,8 +38,8 @@ public class IrideHelperImpl extends CommonHelperImpl implements IrideHelper {
 	private Map<String, List> abilitazioniByUseCase;
 
 	@Autowired 
-	//@Qualifier("irideService")
-	@Qualifier("irideServiceMock")
+	@Qualifier("irideService")
+	//@Qualifier("irideServiceMock")
 	
 	private IrideService irideService;
 	

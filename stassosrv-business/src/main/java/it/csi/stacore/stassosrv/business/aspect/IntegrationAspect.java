@@ -17,7 +17,7 @@ import it.csi.stacore.stassosrv.util.XmlSerializer;
 @Aspect
 public class IntegrationAspect extends CommonAspect {
 
-	@Around(value = "execution(* it.csi.stacore.stassosrv.integration.**.impl..*.*(..))", argNames = "joinPoint")
+	@Around(value = "execution(* it.csi.stacore.stassosrv.integration.service.impl..*.*(..))", argNames = "joinPoint")
 	public Object stopWatchMethod(ProceedingJoinPoint joinPoint) throws Throwable {
 		return super.stopWatchAspect(joinPoint);
 	}
@@ -27,7 +27,7 @@ public class IntegrationAspect extends CommonAspect {
 		super.beforeAspect(joinPoint);
 	}
 
-	@AfterThrowing (pointcut="execution(* it.csi.stacore.stassosrv.integration.**.impl..*.*(..))", throwing="ex" )
+	@AfterThrowing (pointcut="execution(* it.csi.stacore.stassosrv.integration.service.impl..*.*(..))", throwing="ex" )
 	public void afterThrowingAspect(JoinPoint joinPoint, Exception ex) throws Throwable {
 
 		String className = joinPoint.getTarget().getClass().getSimpleName();

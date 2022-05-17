@@ -83,21 +83,8 @@ public class Tracer implements Serializable{
 			if (logger.isDebugEnabled())  logger.debug(createOutput(className,methodName,msg));
 		}
 	}
-	
-	public static void debug(org.jboss.logging.Logger logger, String className, String methodName, String msg)  {
-		if(logger != null){
-			if (logger.isDebugEnabled())  logger.debug(createOutput(className,methodName,msg));
-		}
-	}
 
 	public static void info(Logger logger, String className, String methodName, String msg) {
-		if(logger != null){
-			if (logger.isInfoEnabled()) {
-				logger.info(createOutput(className,methodName,msg));
-			}
-		}
-	}
-	public static void info(org.jboss.logging.Logger logger, String className, String methodName, String msg) {
 		if(logger != null){
 			if (logger.isInfoEnabled()) {
 				logger.info(createOutput(className,methodName,msg));
@@ -110,30 +97,14 @@ public class Tracer implements Serializable{
 			logger.warn(createOutput(className,methodName,msg));
 		}
 	}
-	
-	public static void warn(org.jboss.logging.Logger logger, String className, String methodName, String msg){
-		if(logger != null){
-			logger.warn(createOutput(className,methodName,msg));
-		}
-	}
 
 	public static void error(Logger logger, String className, String methodName, String msg, Throwable ex) {
 		if(logger != null){
 			logger.error(createOutput(className,methodName,msg), ex);	
 		}
 	}
-	public static void error(org.jboss.logging.Logger logger, String className, String methodName, String msg, Throwable ex) {
-		if(logger != null){
-			logger.error(createOutput(className,methodName,msg), ex);	
-		}
-	}
 
 	public static void error(Logger logger, String className, String methodName, String msg){
-		if(logger != null){
-			logger.error(createOutput(className, methodName, msg));
-		}
-	}
-	public static void error(org.jboss.logging.Logger logger, String className, String methodName, String msg){
 		if(logger != null){
 			logger.error(createOutput(className, methodName, msg));
 		}

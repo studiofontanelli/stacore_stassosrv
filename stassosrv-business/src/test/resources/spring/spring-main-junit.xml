@@ -10,17 +10,17 @@
 	<context:property-placeholder location="classpath:environment.properties" />
 
 
-	<!-- WEB MODULE CONFIGURATION MAIN FILE -->
-	<import resource="classpath:spring/spring-api.xml" />
+	<!-- BUSINESS CONFIGURATION MAIN FILE -->
+	<import resource="classpath:spring/spring-business-junit.xml" />
+	
+	
+	<!-- INTEGRATION CONFIGURATION MAIN FILE -->
+	<import resource="classpath:spring/spring-integration-junit.xml" />
 
 	<!-- UTIL MODULE CONFIGURATION MAIN FILE -->
-	<import resource="classpath:spring/spring-util.xml" />
+	<import resource="classpath:spring/spring-util-junit.xml" />
 
-	<!-- BUSINESS MODULE CONFIGURATION MAIN FILE -->
-	<import resource="classpath:spring/spring-business.xml" />
-
-	<!-- INTEGRATION MODULE CONFIGURATION MAIN FILE -->
-	<import resource="classpath:spring/spring-integration.xml" />
+	
 	
 	
 	
